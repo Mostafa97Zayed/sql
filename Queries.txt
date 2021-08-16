@@ -1,0 +1,39 @@
+employee with manger name
+1-
+SELECT e.first_name,e.age,e.salary , c.first_name as manager
+FROM employee e
+left JOIN employee c
+ON c.id= e.mangerid
+-----------------------------
+employee with department name
+2-
+SELECT e.first_name , d.departmentname
+FROM employee e 
+JOIN department d 
+on d.iddepartment = e.department_iddepartment
+------------------------------
+count employee in department
+3-
+select count(*) as count,d.departmentname
+from employee e 
+inner join department d on e.department_iddepartment = d.iddepartment
+group by d.departmentname
+------------------------------
+empolyee older than 30
+4-
+SELECT e.first_name ,e.age
+FROM employee e 
+where e.age > 30
+-------------------------------
+max salary in each department 
+5-
+SELECT e.id,d.departmentname ,MAX(Salary) FROM employee e 
+JOIN department d
+on d.iddepartment = e.department_iddepartment
+ GROUP BY department_iddepartment 
+---------------------------------
+max salary with first_name
+6
+SELECT e.first_name,d.departmentname ,MAX(Salary) FROM employee e 
+JOIN department d
+on d.iddepartment = e.department_iddepartment
